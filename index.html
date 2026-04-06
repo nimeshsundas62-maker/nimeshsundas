@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nimesh Sundas — Independent Candidate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES — STRICT COLOR PALETTE
+    ============================================================ */
+    :root {
+      --navy:        #0A2540;
+      --green:       #166534;
+      --bg:          #F8F9FA;
+      --text:        #1A1A1A;
+      --white:       #FFFFFF;
+      --green-light: #dcfce7;
+      --navy-mid:    #0e3260;
+      --border:      #e2e6ea;
+      --shadow:      0 4px 32px rgba(10,37,64,.08);
+      --radius:      4px;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ============================================================
+       UTILITY CLASSES
+    ============================================================ */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    /* ============================================================
+       HEADER / NAVIGATION
+    ============================================================ */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(248,249,250,.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s ease;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    /* Candidate name as logo */
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-logo .name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--navy);
+      letter-spacing: -.01em;
+    }
+
+    .nav-logo .tagline {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+      letter-spacing: .02em;
+      position: relative;
+      padding-bottom: 2px;
+      transition: color .2s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -2px;
+      width: 0; height: 2px;
+      background: var(--green);
+      transition: width .25s ease;
+    }
+
+    .nav-links a:hover { color: var(--green); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Hamburger (mobile) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: all .3s;
+    }
+
+    /* ============================================================
+       HERO SECTION — SPLIT SCREEN
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 72px; /* header offset */
+    }
+
+    /* Left: image column */
+    .hero-image-col {
+      position: relative;
+      overflow: hidden;
+      min-height: 560px;
+    }
+
+    .hero-img-placeholder {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(160deg, #0e3260 0%, #0A2540 55%, #166534 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 48px 40px;
+    }
+
+    /* Replace this block with <img src="your-photo.jpg" /> */
+    .photo-placeholder-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      border: 3px dashed rgba(255,255,255,.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-placeholder-icon svg {
+      opacity: .5;
+    }
+
+    .photo-caption {
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 180px;
+    }
+
+    /* Decorative vertical rule on the divider */
+    .hero-image-col::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 10%; bottom: 10%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--border) 30%, var(--border) 70%, transparent);
+    }
+
+    /* Right: content column */
+    .hero-content-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 72px 80px 80px;
+    }
+
+    .hero-content-col .section-label {
+      margin-bottom: 28px;
+    }
+
+    .hero-heading {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: clamp(40px, 5vw, 62px);
+      line-height: 1.05;
+      color: var(--navy);
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+
+    .hero-subheading {
+      font-size: 16px;
+      font-weight: 400;
+      color: #4a5568;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .hero-office {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--green);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 44px;
+    }
+
+    .hero-office::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+
+    /* CTA Button */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      padding: 16px 36px;
+      border-radius: var(--radius);
+      border: 2px solid var(--navy);
+      cursor: pointer;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 2px 12px rgba(10,37,64,.18);
+    }
+
+    .btn-primary:hover {
+      background: var(--navy-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(10,37,64,.22);
+    }
+
+    .btn-primary svg { flex-shrink: 0; transition: transform .2s; }
+    .btn-primary:hover svg { transform: translateX(4px); }
+
+    /* Stat strip below CTA */
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-item .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .stat-item .stat-desc {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-top: 6px;
+    }
+
+    /* ============================================================
+       ABOUT SECTION
+    ============================================================ */
+    #about {
+      padding: 128px 0;
+      background: var(--white);
+    }
+
+    .about-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-heading {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(30px, 4vw, 44px);
+      color: var(--navy);
+      letter-spacing: -.02em;
+      line-height: 1.15;
+      margin-bottom: 36px;
+    }
+
+    .about-body {
+      font-size: 17px;
+      line-height: 1.85;
+      color: #374151;
+    }
+
+    .about-body p + p {
+      margin-top: 24px;
+    }
+
+    /* Pillars / values strip */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 80px;
+      text-align: left;
+    }
+
+    .pillar {
+      padding: 32px 28px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      transition: box-shadow .2s, transform .2s;
+    }
+
+    .pillar:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-3px);
+    }
+
+    .pillar-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--green-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .pillar-icon svg { color: var(--green); }
+
+    .pillar h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .pillar p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #4b5563;
+    }
+
+    /* ============================================================
+       TRANSPARENCY & CONTACT SECTION
+    ============================================================ */
+    #contact {
+      padding: 112px 0;
+      background: var(--bg);
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* Left: section intro */
+    .contact-intro h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -.02em;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .contact-intro p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #4b5563;
+      margin-bottom: 16px;
+    }
+
+    .verification-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 40px;
+      border: 1px solid #bbf7d0;
+      margin-bottom: 32px;
+    }
+
+    /* Right: contact card */
+    .contact-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card-header {
+      background: var(--navy);
+      padding: 28px 36px;
+    }
+
+    .contact-card-header p {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+      margin-bottom: 4px;
+    }
+
+    .contact-card-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .contact-card-body {
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--green-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .contact-icon svg { color: var(--green); }
+
+    .contact-item-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    /* The email — most critical element */
+    .contact-email {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -.01em;
+      transition: color .2s;
+    }
+
+    .contact-email:hover {
+      color: var(--green);
+    }
+
+    .contact-address,
+    .contact-phone {
+      font-size: 15px;
+      color: #374151;
+      line-height: 1.6;
+    }
+
+    /* Divider between contact items */
+    .contact-divider {
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 60px 0 40px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 32px;
+    }
+
+    .footer-logo-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -.01em;
+    }
+
+    .footer-logo-mark span {
+      color: rgba(255,255,255,.4);
+      font-weight: 300;
+    }
+
+    /* Optional social icons */
+    .footer-socials {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.6);
+      transition: border-color .2s, color .2s;
+    }
+
+    .footer-social-link:hover {
+      border-color: rgba(255,255,255,.6);
+      color: var(--white);
+    }
+
+    /* THE MANDATORY DISCLAIMER — most prominent footer element */
+    .footer-disclaimer {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 6px;
+      padding: 18px 36px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,.85);
+      letter-spacing: .01em;
+      text-align: center;
+    }
+
+    .footer-disclaimer strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .footer-bottom {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      font-size: 13px;
+      color: rgba(255,255,255,.4);
+    }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content-col > * {
+      opacity: 0;
+      animation: fadeUp .7s ease forwards;
+    }
+
+    .hero-content-col .section-label { animation-delay: .1s; }
+    .hero-content-col .hero-heading  { animation-delay: .22s; }
+    .hero-content-col .hero-office   { animation-delay: .32s; }
+    .hero-content-col .hero-subheading { animation-delay: .38s; }
+    .hero-content-col .btn-primary   { animation-delay: .48s; }
+    .hero-content-col .hero-stats    { animation-delay: .6s; }
+
+    /* ============================================================
+       RESPONSIVE — TABLET & MOBILE
+    ============================================================ */
+    @media (max-width: 900px) {
+      /* Hero stacks */
+      #hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-image-col {
+        min-height: 380px;
+      }
+
+      .hero-image-col::after { display: none; }
+
+      .hero-content-col {
+        padding: 64px 32px;
+      }
+
+      /* Pillars 2-col */
+      .pillars {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      /* Contact 1-col */
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      /* Footer */
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 20px; }
+
+      #about, #contact { padding: 80px 0; }
+
+      .hero-content-col { padding: 48px 20px; }
+
+      .pillars {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .hamburger { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        padding: 24px 32px;
+        gap: 24px;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 8px 24px rgba(0,0,0,.08);
+      }
+
+      .nav-links.open { display: flex; }
+
+      .footer-disclaimer { padding: 16px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="nav container">
+
+      <a href="#" class="nav-logo" aria-label="Nimesh Sundas — Home">
+        <span class="name">Nimesh Sundas</span>
+        <span class="tagline">Independent Candidate</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </nav>
+  </header>
+
+
+  <section id="hero" aria-label="Introduction">
+
+    <img src="candidate.png" alt="Nimesh Sundas" style="width:100%; height:100%; object-fit:cover; object-position: top center;" />
+    </div>
+
+    <div class="hero-content-col">
+      <span class="section-label">General Election 2026</span>
+
+      <h1 class="hero-heading">
+        Nimesh<br>Sundas
+      </h1>
+
+      <p class="hero-office" >Independent Candidate for Matigara-Naxalbari (Constituency No. 25) ; Siliguri</p>
+
+      <p class="hero-subheading">
+        An Independent, Unbound, and Accountable voice—Only to You.
+      </p>
+
+      <a href="#about" class="btn-primary" aria-label="Learn more about Nimesh Sundas's vision">
+        My Vision
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3.75 9H14.25M14.25 9L9.75 4.5M14.25 9L9.75 13.5" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+      <div class="hero-stats" aria-label="Key facts">
+        <div class="stat-item">
+          <div class="stat-num">18+</div>
+          <div class="stat-desc">Years Public Service</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3</div>
+          <div class="stat-desc">Policy Portfolios</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">0</div>
+          <div class="stat-desc">Party Affiliations</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="about-inner">
+
+        <span class="section-label">Background &amp; Platform</span>
+
+        <h2 class="about-heading" id="about-heading">
+          Rooted in the Soil.<br>Driven by the People.
+        </h2>
+
+        <div class="about-body">
+          <p>
+            Nimesh Sundas has spent over eighteen years in public administration, but his true 
+            education comes from the tea gardens, flooded fields, and village roads of 
+            Matigara-Naxalbari. Having seen decades of broken promises and "vanishing" politicians, 
+            he is standing to break the cycle of neglect.
+          </p>
+           <p>
+            Unlike party candidates who answer to a high command in Kolkata or Delhi, Nimesh answers 
+            only to you. His platform is built on physical presence working in the mud and the fields 
+            alongside the community he represents.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="pillars">
+
+        <article class="pillar">
+          <div class="pillar-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 10s3-7 9-7 9 7 9 7-3 7-9 7-9-7-9-7z" stroke="#166534" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="10" cy="10" r="2.5" stroke="#166534" stroke-width="1.75"/>
+            </svg>
+          </div>
+          <h3>Justice for Tea Gardens</h3>
+          <p>Beyond slogans, we will enforce timely wage payments and build secondary schools within walking distance of the gardens.</p>
+        </article>
+
+        <article class="pillar">
+          <div class="pillar-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="7.5" cy="6" r="2.5" stroke="#166534" stroke-width="1.75"/>
+              <path d="M2 17c0-3.04 2.46-5.5 5.5-5.5S13 13.96 13 17" stroke="#166534" stroke-width="1.75" stroke-linecap="round"/>
+              <circle cx="14" cy="6" r="2" stroke="#166534" stroke-width="1.5"/>
+              <path d="M14 11.5c1.76.4 3 1.95 3 3.8" stroke="#166534" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Infrastructure & Safety</h3>
+          <p>Building roads that don't wash away and repairing Mechi embankments through community-led accountability.</p>
+        </article>
+
+        <article class="pillar">
+          <div class="pillar-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 16c2-8 10-12 14-12-2 6-8 12-14 12z" stroke="#166534" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 16l4-4" stroke="#166534" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Dignity For All</h3>
+          <p>Fighting for the constitutional rights of the Rajbanshi and Tribal communities, including legal land titles for the undocumented.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+
+      <div class="contact-wrapper">
+
+        <div class="contact-intro">
+
+          <span class="verification-badge" aria-label="Verified contact information">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M7 1l1.6 2.6L12 4.3l-2.5 2.4.6 3.4L7 8.5l-3.1 1.6.6-3.4L2 4.3l3.4-.7L7 1z" stroke="#166534" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+            Verified Contact Information
+          </span>
+
+          <h2 class="contact-heading" id="contact-heading">
+            Transparency<br>&amp; Contact
+          </h2>
+
+          <p>
+            The information on the right is this campaign's sole official channel. We publish
+            it openly so that any citizen, journalist, or electoral authority can verify the
+            identity and reach of this candidacy at any time.
+          </p>
+          <p>
+            If you have received communications claiming to represent this campaign through
+            any other channel, please report it to the Election Commission and contact us
+            directly using the address below.
+          </p>
+
+        </div>
+
+        <div class="contact-card" role="region" aria-label="Official candidate contact details">
+
+          <div class="contact-card-header">
+            <p>Official Campaign Contact</p>
+            <h3>Nimesh Sundas for Siliguri</h3>
+          </div>
+
+          <div class="contact-card-body">
+
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="4" width="14" height="10" rx="2" stroke="#166534" stroke-width="1.75"/>
+                  <path d="M2 6.5l7 4 7-4" stroke="#166534" stroke-width="1.75" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-item-label">Email Address</div>
+                <a href="mailto:contact@nimeshsundas.in" class="contact-email">
+                  contact@nimeshsundas.in
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-divider" role="separator"></div>
+
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 1.5C6.24 1.5 4 3.74 4 6.5c0 4.13 5 10 5 10s5-5.87 5-10c0-2.76-2.24-5-5-5z" stroke="#166534" stroke-width="1.75"/>
+                  <circle cx="9" cy="6.5" r="1.75" stroke="#166534" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-item-label">Mailing Address</div>
+                <address class="contact-address" style="font-style:normal;">
+                  S/O Ganesh Sundas,<br>
+                  Robertson Road,<br>
+                  Hotel Mahakal, Darjeeling — 734001,<br>
+                  West Bengal, India
+                </address>
+              </div>
+            </div>
+
+            <div class="contact-divider" role="separator"></div>
+
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.5 3h3l1.5 3.5-1.75 1.05A10.5 10.5 0 009.45 10.75L10.5 9l3.5 1.5v3c0 1.1-.9 2-2 2C5.97 15.5 2.5 12.03 2.5 7.5c0-1.1.9-2 2-2z" stroke="#166534" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-item-label">Phone</div>
+                <p class="contact-phone">+91 81166 61008</p>
+                <p style="font-size:12px;color:#9ca3af;margin-top:3px;">Mon – Sat, 10:00 AM – 6:00 PM IST</p>
+              </div>
+            </div>
+
+          </div></div></div></div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-logo-mark">
+          Nimesh Sundas <span>/ Siliguri</span>
+        </div>
+         <div class="footer-socials" aria-label="Social media">
+         <a href="https://www.facebook.com/profile.php?id=61575391476086" class="footer-social-link" aria-label="Facebook" target="_blank">
+       <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M16 8A8 8 0 1 0 6.75 15.9V10.4H4.75V8h2V6.2c0-2 1.2-3.1 3-3.1.87 0 1.78.15 1.78.15v2h-1c-.99 0-1.3.61-1.3 1.24V8h2.2l-.35 2.4H9.23V15.9A8 8 0 0 0 16 8z"/>
+    </svg>
+  </a>
+</div>
+          <br>
+        </div>
+
+        <div class="footer-disclaimer" role="note">
+          <strong>Paid for by Nimesh Sundas for Siliguri Campaign Committee.</strong><br>
+          This website is authorised and published solely by the candidate.
+        </div>
+
+        <div class="footer-bottom">
+          <span>&copy; 2026 Nimesh Sundas. All rights reserved.</span>
+          <span><a href="privacy-policy.html" style="text-decoration: underline;">Privacy Policy</a></span>
+          <span>Not affiliated with any political party.</span>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close menu when a link is tapped on mobile
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+
+    // Elevate header shadow on scroll
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      header.style.boxShadow = window.scrollY > 10
+        ? '0 4px 24px rgba(10,37,64,.10)'
+        : 'none';
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
